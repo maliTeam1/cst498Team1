@@ -1,0 +1,75 @@
+h1 {
+    text-align: center;
+    font-size: 1em;
+    color: #009;
+    margin-bottom: .3em;
+    text-decoration: bold;
+  }
+h2 {
+    text-align: center;
+    font-size: .8em;
+    color: #009;
+    margin-bottom: .3em;
+    text-decoration: bold;
+}
+  
+  table {
+    margin: .3em;
+    width: 290px;
+  }
+  
+  th {
+    padding: .2em;
+  }
+  
+  td {
+    padding-left: .5em;
+    padding-right: .5em;
+    border: 1px solid rgba(10, 0, 153, 0.747);
+    background-color: rgb(240, 241, 236);
+  }
+  
+  #trHeader {
+    text-decoration: bold;
+    color: rgba(10, 0, 153, 0.637);
+  }
+  
+  .centerCell {
+    text-align: center;
+  }
+  border1 {
+    border: 0.5rem outset rgba(3, 13, 160, 0.747);
+    outline: 0.5rem solid khaki;
+    border-radius: 12px;
+    font: bold 1rem sans-serif;
+    margin: 2rem;
+    padding: 1rem;
+    outline-offset: 0.5rem;
+  }
+  /* Add a black background color to the top navigation */
+.topnav {
+    background-color: rgb(245, 243, 243);
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #3113dddc;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
