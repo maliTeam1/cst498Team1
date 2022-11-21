@@ -1,5 +1,28 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .topnav
+    a.active(href='#home') Home
+    a(href='html_HistoryPage.html') History
+  h1  The Thought Collector
+  h2  
+  border1
+    label Hi friend!
+    br
+    br
+    br
+    textarea(placeholder= "Journal Title" id='textbox' rows='1' cols='20')
+    br
+    textarea(placeholder= "What's on your mind?" id='textbox' rows='10' cols='100')
+    br
+    
+    select(id='tagCategory')     
+      option(id='DEFAULT') Select
+      option(id='FRIENDSHIP') Friendship
+      option(id='PRODUCTIVITY') Productivity
+      option(id='GOALS') Goals
+      option(id='SCHOOL') School
+      option(id='EXERCISE') Exercise
+
+    button(type="submit") I'm finished  
+
