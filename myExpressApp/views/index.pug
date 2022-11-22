@@ -11,18 +11,20 @@ block content
     br
     br
     br
-    textarea(placeholder= "Journal Title" id='textbox' rows='1' cols='20')
-    br
-    textarea(placeholder= "What's on your mind?" id='textbox' rows='10' cols='100')
-    br
-    
-    select(id='tagCategory')     
-      option(id='DEFAULT') Select
-      option(id='FRIENDSHIP') Friendship
-      option(id='PRODUCTIVITY') Productivity
-      option(id='GOALS') Goals
-      option(id='SCHOOL') School
-      option(id='EXERCISE') Exercise
+    form(method="get" action="/submit")
+      input(placeholder= "Journal Title" id="journalTitle" name="journalTitle")
+      br
+      br
+      textarea(placeholder= "What's on your mind?" name='jounralText' id='jounralText' rows='10' cols='100')
 
-    button(type="submit") I'm finished  
+      select(name='tag' id='tag')     
+        option(name='DEFAULT' value='DEFAULT') Select
+        option(name= 'PRODUCTIVITY' value='PRODUCTIVITY') Productivity
+        option(name='GOALS' value='GOALS') Goals
+        option(name='SCHOOL' value='SCHOOL') School
+      
+      br
+      button(type="submit") I'm finished 
+
+    
 
