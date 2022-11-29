@@ -3,9 +3,9 @@
 /**
  * Required External Modules
  */
- const { getRandomValues } = require("crypto");
+const { getRandomValues } = require("crypto");
 const express = require("express");
-const { write, writeFileSync } = require("fs");
+const { write, readFileSync,appendFileSync, writeFileSync } = require("fs");
  const path = require("path");
 
 
@@ -120,7 +120,12 @@ const { Client } = require("pg")
 //     res.status(200).send("Thought Collector: Journaling with a Purpose");
 //   });
 
-function getValues(req) {return req.query}
+/////////////////////////////////////////////////////////////////// This is our home route
+
+function getValues(req) {
+  return req.query
+}
+
 // This displays the home page to the user
 app.get("/",async (req, res) => {
   res.render("index", { title: "Home" });
@@ -136,21 +141,50 @@ app.get("/submit",async (req, res) => {
   // write the values to a file
   write2File(values)
   recommendation = recommendationMap[values.tag]
-  res.send("since you chose " + values.tag + ", here's your recommendation: \n" + recommendation)
+  res.send("Since you chose the " + values.tag + " tag, here's your recommendation: \n" + recommendation)
 });
+
+
+/////////////////////////////////////////////////////////////////// This is our history route
+
+function getHistory(){
+  // read contents from file
+  console.log("Reading Journal file.")
+
+  let data
+
+  try {
+    data = readFileSync("journal.txt", "utf8");
+    console.log(data)
+    console.log("File read sucessful")
+  } catch (err) {
+    console.error(err);
+  }
+  // return contents (string)
+  return data
+}
+
+// This displays history page to the user
+app.get("/history",async (req, res) => {
+  history = getHistory(req)
+  res.render("history", { content: history});
+});
+
+
 
 
 
 function write2File(values){
   console.log("Writing to file.")
+
   try {
-    writeFileSync("journal.txt", JSON.stringify(values));
-    console.log("file write successfulo")
+    appendFileSync("journal.txt", JSON.stringify(values));
+    console.log("file write successful")
   } catch(err){
     console.log(err);
   }
-}
 
+}
 
 
 /**
