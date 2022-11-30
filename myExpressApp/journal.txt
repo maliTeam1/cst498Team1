@@ -1,1 +1,10 @@
-{"journalTitle":"what","tag":"PRODUCTIVITY","journalText":"I am serio,mm  ,m m, usly strumggling"}{"journalTitle":"jllnl","tag":"DEFAULT","journalText":"khkhkh"}
+{"journalTitle":"mytitle","tag":"PRODUCTIVITY","journalText":"tell ya what, here's something thats gonna blow ur mind"}
+{"journalTitle":"my mind","tag":"GOALS","journalText":"is blown"}
+{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
+{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
+{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
+{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
+{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
+{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
+{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
+{"journalTitle":"","tag":"PRODUCTIVITY","journalText":"knsd;fkn;kn;va"}

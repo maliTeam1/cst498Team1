@@ -1,3 +1,4 @@
+//- The following html file is related to history
 extends layout
 
 block content
@@ -9,3 +10,19 @@ block content
     h1  The Thought Collector History
 
     p #{content}
+
+    table 
+
+        thead 
+
+            tr 
+                th Journal Title
+                th Journal
+                th Keyword 
+
+        tbody
+            each record in content
+                tr 
+                    td= record.journalTitle
+                    td= record.journalText 
+                    td= record.tag 

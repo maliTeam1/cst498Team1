@@ -141,7 +141,9 @@ app.get("/submit",async (req, res) => {
   // write the values to a file
   write2File(values)
   recommendation = recommendationMap[values.tag]
-  res.send("Since you chose the " + values.tag + " tag, here's your recommendation: \n" + recommendation)
+  submitMsg = "Since you chose the " + values.tag + " tag, here's your recommendation: \n"
+  submitLink = recommendation
+  res.render("index", { submitMsg, submitLink})
 });
 
 
@@ -151,23 +153,37 @@ function getHistory(){
   // read contents from file
   console.log("Reading Journal file.")
 
-  let data
+  let dataStr
+  let dataArray
 
   try {
-    data = readFileSync("journal.txt", "utf8");
-    console.log(data)
+    dataStr = readFileSync("journal.txt", "utf8").trim()
+    console.log(dataStr)
+    dataArray = dataStr.split("\n")
+    console.log("dis what my array look like: " + dataArray)
     console.log("File read sucessful")
   } catch (err) {
     console.error(err);
   }
   // return contents (string)
-  return data
+  return dataArray
 }
 
 // This displays history page to the user
 app.get("/history",async (req, res) => {
-  history = getHistory(req)
-  res.render("history", { content: history});
+  historyStrArray = getHistory(req)
+  
+  let objArray = []
+
+  historyStrArray.forEach(element => {
+    let obj = JSON.parse(element)
+    console.log("object: %j ", obj)
+    objArray.push(obj)
+  });
+
+  console.log("here's my history obj array: " + objArray)
+
+  res.render("history", { content: objArray});
 });
 
 
@@ -178,7 +194,9 @@ function write2File(values){
   console.log("Writing to file.")
 
   try {
-    appendFileSync("journal.txt", JSON.stringify(values));
+    let jsonStr = JSON.stringify(values)
+    console.log("heres my json: " + jsonStr)
+    appendFileSync("journal.txt", jsonStr + "\n");
     console.log("file write successful")
   } catch(err){
     console.log(err);

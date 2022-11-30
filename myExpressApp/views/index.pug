@@ -1,3 +1,4 @@
+//- The following html is related to the homepage. Consisting of the title, text, keyword, and submission of the journal
 extends layout
 
 block content
@@ -25,6 +26,9 @@ block content
       textarea(placeholder= "What's on your mind?" name='journalText' id='journalText' rows='10' cols='100')
       br
       button(type="submit") I'm finished 
+
+    p #{submitMsg}
+    a(href=`${submitLink}`) Your Recommendation
 
     
 
