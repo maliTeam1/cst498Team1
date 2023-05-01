@@ -1,29 +1,73 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, Helvetica;
+  background-image: url("greenCow.jpg");
+  background-color: bisque;
 }
 
 a {
-  color: #00B7FF;
+  color:whitesmoke;
   display: inline;
   padding-right: 5%;
+  padding-left: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-size: medium;
+  border-style: dotted;
+  border-color: black;
 }
 
 table, th, td {
   border: 1px solid;
+  background-color: white; 
+  width: 500px;
 }
-
-
-/* html, body {
-  height: 100%;
-} */
+table{
+  width: 100%;
+}
+th{
+  height: 40px;
+  background-color:darkseagreen;
+  font-size: 18px;
+}
+td{
+  height: 30px;
+  width: 400px;
+  word-wrap: normal;
+  padding: 10px;
+  font-size: 16px;
+}
 
 html {
   display: table;
   margin: auto;
 }
 
-body {
+.container {
+  
   display: table-cell;
-  vertical-align: middle;
+  align-content: left;
+  background-size: auto;
+  background-repeat: no-repeat;
+  zoom: 125%;
+}
+
+h1 {
+  color:white;
+}
+input{
+  border: 1px solid;
+  height: 30px;
+  font-size: 16px;
+}
+
+textarea{
+  font-size: 17px;
+}
+select{
+  border: 1px solid;
+  height: 30px;
+  padding-right: 5%;
+  margin-left: 30px;
+  font-size: 16px;
 }

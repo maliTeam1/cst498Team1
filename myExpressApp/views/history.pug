@@ -2,24 +2,25 @@
 extends layout
 
 block content
-    .topnav
-        a.active(href='/') Home
-        a(href='/history') History
+   .history 
+        .topnav
+            a.active(href='/') Home
+            a(href='/history') History
 
-    h1  The Thought Collector History
+        h1  The Thought Collector History
 
-    table 
+        table 
 
-        thead 
+            thead 
 
-            tr 
-                th Journal Title
-                th Journal
-                th Keyword 
-
-        tbody
-            each record in content
                 tr 
-                    td= record.journalTitle
-                    td= record.journalText 
-                    td= record.tag 
+                    th Journal Title
+                    th Journal
+                    th Keyword 
+
+            tbody
+                each record in content
+                    tr 
+                        td= record.journalTitle
+                        td= record.journalText 
+                        td= record.tag 

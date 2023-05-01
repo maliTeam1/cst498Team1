@@ -67,7 +67,6 @@ function journalSubmit(event) {
 
   const value = data.get('journalTitle');
 
-  console.log('test:',{ value });
 }
  
 
@@ -87,9 +86,7 @@ app.get("/",async (req, res) => {
 // This is logic to handle values when user clicks submit
 // google.com/submit
 app.get("/submit",async (req, res) => {
-  console.log("User submitted.")
   values = getValues(req)
-  console.log("Here are your query params:", values)
 
   // write the values to a file
   write2DB(values)
@@ -202,3 +199,13 @@ function write2DB(values){
  app.listen(port, () => {
     console.log(`Listening to requests on http://localhost:${port}`);
   });
+// this is the funtion to play music
+
+// var myMusic= document.getElementById(".music");
+// function play() {
+// myMusic.play();
+// }
+
+// function pause() {
+// myMusic.pause();
+// }

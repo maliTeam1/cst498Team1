@@ -3,32 +3,39 @@ extends layout
 
 block content
 
-  .topnav
-    a.active(href='/') Home
-    a(href='/history') History
-  h1  The Thought Collector
-  h2  
-  border1
-    label Welcome! Feel free to document your thoughts here.
-    br
-    br
-    br
-    form(method="get" action="/submit")
-      input(placeholder= "Journal Title" id="journalTitle" name="journalTitle")
-      select(name='tag' id='tag')     
-        option(name='DEFAULT' value='DEFAULT') Select
-        option(name= 'PRODUCTIVITY' value='PRODUCTIVITY') Productivity
-        option(name='GOALS' value='GOALS') Goals
-        option(name='SCHOOL' value='SCHOOL') School
-      br
-      br
-      textarea(placeholder= "What's on your mind?" name='journalText' id='journalText' rows='10' cols='100')
-      br
-      button(type="submit") I'm finished 
+  //- .music 
+  //-   source(src="lofi.mp3" type="audio/mpeg")
+  //-   button(type="button" onclick="play()") Play
+  //-   button(type="button" onclick="pause()") Pause 
 
-    p #{submitMsg}
-    if submitLink  
-      a(href=`${submitLink}`) Your Recommendation
-
+  .container
+    .topnav
+      a.active(href='/') Home
+      a(href='/history') History
     
+    h1  The Thought Collector
+    h2  
+    border1
+      label Welcome! Feel free to document your thoughts here.
+      br
+      br
+      br
+      form(method="get" action="/submit")
+        input(placeholder= "Journal Title" id="journalTitle" name="journalTitle")
+        select(name='tag' id='tag')     
+          option(name='DEFAULT' value='DEFAULT') Select
+          option(name= 'PRODUCTIVITY' value='PRODUCTIVITY') Productivity
+          option(name='GOALS' value='GOALS') Goals
+          option(name='SCHOOL' value='SCHOOL') School
+        br
+        br
+        textarea(placeholder= "What's on your mind?" name='journalText' id='journalText' rows='10' cols='100')
+        br
+        button(type="submit") I'm finished 
+
+      p #{submitMsg}
+      if submitLink  
+        a(href=`${submitLink}`) Your Recommendation
+
+      
 
