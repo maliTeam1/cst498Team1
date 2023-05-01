@@ -1,5 +1,3 @@
-// index.js
-
 /**
  * Required External Modules
  */
@@ -7,7 +5,7 @@ const { getRandomValues } = require("crypto");
 const express = require("express");
 const { write, readFileSync,appendFileSync, writeFileSync } = require("fs");
  const path = require("path");
-
+ const mysql = require('mysql');
 
  recommendationMap = {
   "PRODUCTIVITY": "https://www.youtube.com/results?search_query=how+to+be+more+productive",
@@ -15,37 +13,6 @@ const { write, readFileSync,appendFileSync, writeFileSync } = require("fs");
   "SCHOOL": "https://www.youtube.com/results?search_query=tips+for+school"
  }
 
-//  [
-//   {
-//  "id":"prod",
-//  "tag":"Productivity",
-//  "description":"Subject area of journal is regarding productivity.",
-//  "recommendation":{
-//     "recommendation_id":"productivityYouTube",
-//     "source":"https://www.youtube.com/results?search_query=how+to+be+more+productive"
-//  }
-// },
-
-// {
-//  "id":"goals",
-//  "tag":"Goals",
-//  "description":"Subject area of journal is regarding goals.",
-//  "recommendation":{
-//     "recommendation_id":"goalsYouTube",
-//     "source":"https://www.youtube.com/results?search_query=Meeting+Your+Goals"
-//  }
-// },
-
-// {
-//  "id":"school",
-//  "tag":"School",
-//  "description":"Subject area of journal is regarding school.",
-//  "recommendation":{
-//     "recommendation_id":"schoolYouTube",
-//     "source":"https://www.youtube.com/results?search_query=tips+for+school"
-//  }
-// }
-// ]
 
 /**
  * App Variables
@@ -69,6 +36,44 @@ const { write, readFileSync,appendFileSync, writeFileSync } = require("fs");
 // dotenv.config()
 
 
+let submitLink
+let submitMsg
+
+
+////////////////////////////////////////////////////////////////////////// Connect to Database
+//////////////////////////////////////////////////////////////////////////
+
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'cst499!team1',
+  database: 'cst499',
+  port: 3306
+});
+
+connection.query('SELECT * FROM user_journal_entry', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+  console.log("result: " + results)
+
+  console.log("error" + error)
+});
+
+connection.query('INSERT INTO user_journal_entry (journal_id, user_first_name, user_last_name, journal_title, journal_entry_text, journal_tag_name, create_timestamp) VALUES ("1", "first", "last", "title", "text", "tag", current_timestamp) ', function (error, results, fields) {
+  // error will be an Error if one occurred during the query
+  // results will contain the results of the query
+  // fields will contain information about the returned results fields (if any)
+  console.log("result: " + results)
+
+  if (error != null) {
+    console.log("error: " + error)
+  }
+  
+});
+
+
+
 ////////////////////////////////////////////////////////////////////////// Here are some helper functions
 //////////////////////////////////////////////////////////////////////////
 function journalSubmit(event) {
@@ -80,33 +85,6 @@ function journalSubmit(event) {
 
   console.log('test:',{ value });
 }
-
-////////////////////////////////////////////////////////////////////////// Here are some helper functions
-//////////////////////////////////////////////////////////////////////////
-
-const { Client } = require("pg")
-// const dotenv = require("dotenv")
-// dotenv.config()
- 
-
-        const client = new Client({
-            user: "postgres",
-            host: "localhost",
-            database: "postgres",
-            password: "cst498team1",
-            port: "5432"
-        })
-// const insertDB = async () => {
-//   try {
-//       await client.connect()
-//       const res = await client.query("insert into )
-      
-//       await client.end()
-//       return await res.rows
-//     }catch (error) {
-//       console.log(error)
-//     }
-// }
  
 
 
@@ -128,6 +106,8 @@ function getValues(req) {
 
 // This displays the home page to the user
 app.get("/",async (req, res) => {
+  submitMsg = ""
+  submitLink = ""
   res.render("index", { title: "Home" });
 });
 

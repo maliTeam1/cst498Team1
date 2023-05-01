@@ -1,0 +1,3 @@
+C:\Users\malic\OneDrive\cst498Team1\myExpressApp\NodejsWebApp1\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.AssemblyReference.cache
+C:\Users\malic\OneDrive\cst498Team1\myExpressApp\NodejsWebApp1\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsproj.CoreCompileInputs.cache
+C:\Users\malic\OneDrive\cst498Team1\myExpressApp\NodejsWebApp1\NodejsWebApp1\bin\Microsoft.NodejsTools.WebRole.dll

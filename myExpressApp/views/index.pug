@@ -28,7 +28,8 @@ block content
       button(type="submit") I'm finished 
 
     p #{submitMsg}
-    a(href=`${submitLink}`) Your Recommendation
+    if submitLink  
+      a(href=`${submitLink}`) Your Recommendation
 
     
 

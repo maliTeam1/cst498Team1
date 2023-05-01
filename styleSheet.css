@@ -61,6 +61,10 @@ h2 {
     text-decoration: none;
     font-size: 17px;
   }
+
+  table {
+    width: 50%;
+  }
   
   /* Change the color of links on hover */
   .topnav a:hover {
@@ -73,3 +77,4 @@ h2 {
     background-color: #04AA6D;
     color: white;
   }
+/* -------------------------------------------------------------------------------------------------------------------- */

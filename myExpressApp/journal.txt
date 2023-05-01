@@ -1,10 +1,10 @@
 {"journalTitle":"mytitle","tag":"PRODUCTIVITY","journalText":"tell ya what, here's something thats gonna blow ur mind"}
 {"journalTitle":"my mind","tag":"GOALS","journalText":"is blown"}
-{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
-{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
-{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
-{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
-{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
-{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
-{"journalTitle":"cd","tag":"GOALS","journalText":"vdvdsv"}
-{"journalTitle":"","tag":"PRODUCTIVITY","journalText":"knsd;fkn;kn;va"}
+{"journalTitle":"Meeting","tag":"SCHOOL","journalText":"We need to prepare for our meeting with Dr. Sowells-Boone tomorrow at 3pm EST, and I amd freaking out....but only slightly.\r\nI know the product will only get better from here and I'm excited to see what we figure out next semester. :)"}
+{"journalTitle":"Team 1 Meeting","tag":"SCHOOL","journalText":"MysMali, Mitchell, and Doug are having a team meeting right now"}
+{"journalTitle":"what","tag":"GOALS","journalText":"vve"}
+{"journalTitle":"jamison","tag":"SCHOOL","journalText":"dqdwdw"}
+{"journalTitle":"","tag":"DEFAULT","journalText":"a1a1a"}
+{"journalTitle":"","tag":"SCHOOL","journalText":""}
+{"journalTitle":"Meeting with Abana","tag":"SCHOOL","journalText":"Type a journal message."}
+{"journalTitle":"Final Presentation ","tag":"SCHOOL","journalText":"Hello Dr. Sowells-Boone."}

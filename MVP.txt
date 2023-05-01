@@ -1,0 +1,39 @@
+git add * (or file names)
+git commit -m "this is my commit message"
+git push
+
+
+Home Page:
+
+prompt to greet user
+
+input:
+user types journal
+user chooses tag from dropdown
+user submits
+
+journal/tag received from front end
+create JSON obj var using journal string and tag string
+
+send/store JOSN obj to db/textfile
+
+if tag = xyz then recommendation
+	
+
+output:
+prompt recommendation based on tag
+
+
+Simplified MVP - tags-to-recommendation is hardcoded in the same javascript
+
+1) user types journal text
+2) user chooses tag from dropdwon
+3) user submit
+
+4) tag string received from front end
+5) get recommendation - check json mapping for recommendation (recommendation = tagMapping[tagValue])
+6) send recommendation to front end
+
+7) display recommendation to user
+
+Had to write the front end in Java script and didnot wat to have to code in multiple languages
