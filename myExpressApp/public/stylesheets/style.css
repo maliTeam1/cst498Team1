@@ -5,4 +5,25 @@ body {
 
 a {
   color: #00B7FF;
+  display: inline;
+  padding-right: 5%;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+
+/* html, body {
+  height: 100%;
+} */
+
+html {
+  display: table;
+  margin: auto;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
 }

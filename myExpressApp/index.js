@@ -27,6 +27,8 @@ const { write, readFileSync,appendFileSync, writeFileSync } = require("fs");
 
  app.set("views", path.join(__dirname, "views"));
  app.set("view engine", "pug");
+app.use(express.static(path.join(__dirname, 'public')));
+
 
  /**
  *  App Configuration
@@ -51,26 +53,8 @@ const connection = mysql.createConnection({
   port: 3306
 });
 
-connection.query('SELECT * FROM user_journal_entry', function (error, results, fields) {
-  // error will be an Error if one occurred during the query
-  // results will contain the results of the query
-  // fields will contain information about the returned results fields (if any)
-  console.log("result: " + results)
 
-  console.log("error" + error)
-});
 
-connection.query('INSERT INTO user_journal_entry (journal_id, user_first_name, user_last_name, journal_title, journal_entry_text, journal_tag_name, create_timestamp) VALUES ("1", "first", "last", "title", "text", "tag", current_timestamp) ', function (error, results, fields) {
-  // error will be an Error if one occurred during the query
-  // results will contain the results of the query
-  // fields will contain information about the returned results fields (if any)
-  console.log("result: " + results)
-
-  if (error != null) {
-    console.log("error: " + error)
-  }
-  
-});
 
 
 
@@ -86,17 +70,6 @@ function journalSubmit(event) {
   console.log('test:',{ value });
 }
  
-
-
-// define getSselectValues()
-
-/**
- * Routes Definitions
- */
-
-//  app.get("/", (req, res) => {
-//     res.status(200).send("Thought Collector: Journaling with a Purpose");
-//   });
 
 /////////////////////////////////////////////////////////////////// This is our home route
 
@@ -119,7 +92,7 @@ app.get("/submit",async (req, res) => {
   console.log("Here are your query params:", values)
 
   // write the values to a file
-  write2File(values)
+  write2DB(values)
   recommendation = recommendationMap[values.tag]
   submitMsg = "Since you chose the " + values.tag + " tag, here's your recommendation: \n"
   submitLink = recommendation
@@ -151,19 +124,36 @@ function getHistory(){
 
 // This displays history page to the user
 app.get("/history",async (req, res) => {
-  historyStrArray = getHistory(req)
+  connection.query('SELECT * FROM user_journal_entry', function (error, results, fields) {
+    // error will be an Error if one occurred during the query
+    // results will contain the results of the query
+    // fields will contain information about the returned results fields (if any)
+    console.log("result: " + results)
   
-  let objArray = []
+    console.log("error" + error)
 
-  historyStrArray.forEach(element => {
-    let obj = JSON.parse(element)
-    console.log("object: %j ", obj)
-    objArray.push(obj)
+     results = Object.values(JSON.parse(JSON.stringify(results)));
+
+
+    let objArray = []
+
+    results.forEach(element => {
+      console.log(JSON.stringify(element))
+      obj = {
+        journalTitle: element.journal_title,
+        journalText: element.journal_entry_text,
+        tag: element.journal_tag_name
+      }
+      objArray.push(obj)
+      console.log("here's my history obj array: " + JSON.stringify(obj))
+    });
+  
+    console.log("here's my history obj array: " + JSON.stringify(obj))
+  
+    res.render("history", { content: objArray});
   });
+  
 
-  console.log("here's my history obj array: " + objArray)
-
-  res.render("history", { content: objArray});
 });
 
 
@@ -181,6 +171,26 @@ function write2File(values){
   } catch(err){
     console.log(err);
   }
+
+}
+
+function write2DB(values){
+  console.log("Writing to database")
+
+
+  queryString = `INSERT INTO user_journal_entry (journal_title, journal_entry_text, journal_tag_name, create_timestamp) VALUES ("${values.journalTitle}", "${values.journalText}", "${values.tag}", current_timestamp)`
+
+  connection.query(queryString, function (error, results, fields) {
+    // error will be an Error if one occurred during the query
+    // results will contain the results of the query
+    // fields will contain information about the returned results fields (if any)
+    console.log("result: " + results)
+  
+    if (error != null) {
+      console.log("error: " + error)
+    }
+    
+  });
 
 }
 
